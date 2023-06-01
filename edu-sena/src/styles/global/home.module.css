@@ -1,0 +1,15 @@
+.container_home {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    min-height: 100vh;
+}
+
+.container_nav{
+    display: flex;
+    width: 200px;
+}
+
+.desktop{
+    width:auto;
+}
