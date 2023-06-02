@@ -1,11 +1,14 @@
+import Nav from "@/componets/global/nav";
 
 
 export default function notes() {
 
 
     return (
-        <>
-            <h1>notas estudiantes  </h1>
-        </>
+        <Nav>
+            <>
+                <h1>notas estudiantes  </h1>
+            </>
+        </Nav>
     )
 }

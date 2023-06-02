@@ -16,12 +16,14 @@
   width: 800px;
   height: min-content;
   margin: 0px;
+  padding: 10px;
 }
 
 .containerform{
   width: 100%;
-  height: max-content;
+  height: 400px;
   display: flex;
+  margin: 0px;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
