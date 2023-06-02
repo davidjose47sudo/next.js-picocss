@@ -54,16 +54,16 @@ Chart.register(
 );
 
 export const LineChart = (config: graphdataLine) => {
-    return <Line style={{ height: '400px', width: '400px', background: 'white' }} data={config} />;
+    return <Line style={{ height: '638px', width: '638px', background: 'white',borderRadius:'10px' }} data={config} />;
 };
 export const BarChart = (config: graphdataBar) => {
-    return <Bar style={{ height: '400px', width: '400px', background: 'white' }} data={config} />;
+    return <Bar style={{ height: '638px', width: '638px', background: 'white' ,borderRadius:'10px'}} data={config} />;
 };
 export const DoughnutChart = (config: graphdataDuonunt) => {
-    return <Doughnut style={{ height: '400px', width: '400px', background: 'white' }} data={config} />;
+    return <Doughnut style={{ height: '425px', width: '425px', background: 'white',borderRadius:'10px' }} data={config} />;
 };
 export const MixedChart = (config: graphdataMixte) => {
-    return <Bar style={{ height: '400px', width: '400px', background: 'white' }} data={config} />; //este error se ignora porque en la doc del chart esta bien nose porque marca error
+    return <Bar style={{ height: '825px', width: '850px', background: 'white' ,borderRadius:'10px' }} data={config} />; //este error se ignora porque en la doc del chart esta bien nose porque marca error
 };
 
 

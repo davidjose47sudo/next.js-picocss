@@ -1,21 +1,50 @@
+"use client"
 import Image from "next/image";
 import styles from "../../styles/global/nav.module.css"
-
+import Link from "next/link";
+import { decode } from "code-module64";
+import { useEffect, useState } from "react";
 
 export default function Nav({ children, }: { children: React.ReactNode }) {
+
+    const [username, setusername] = useState("admin")
+    const [rol, setRol] = useState("admin")
+    let user = {
+        username: "admin",
+        rol: "admin"
+    }
+    async function parsedata(data: string) {
+        const datauser = await JSON.parse(data)
+        console.log(datauser)
+        setRol(datauser.rol)
+        setusername(datauser.username)
+    }
+    useEffect(() => {
+        const data = localStorage.getItem('datauser')
+        if (typeof (data) === "string") {
+            const desencript = decode({ text: data, key: 'env.aquiva' })
+            desencript.then(data => {
+
+                console.log(data.information)
+                console.log(data.information.information)
+                parsedata(data.information.information)
+            })
+            desencript.catch(e => alert("error"))
+        }
+    }, [])
     return (
         <main className={styles.container_main}>
             <div className={styles.container_nav}>
                 <aside>
-                    <div className={styles.container_img}>
-                        <Image src={"data:image/jpeg;base64,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zED4BZZG1vWX6sw/0Om1quIU5rHelHeGPQtvUdM3hKPk4zsr7tCaVqaExCYmn66Ne17BlO5kPQi4+N+U6Z0RpGnpeimIpG6VFDDxHip8CDcEeIM5YllbHtZvoVU4Co3cqktTJ4LUt3k6BgP8Q8Wl5Tsj79serHDSNJfwpWAHkqVP9lPTL4SBan6fbVvFJiBcp6lRR7VNiM27mRuI6rbnOksXhkxiNTdQyOpVlPAqwsQfhOadatAvq3inwzXKjvIx9um18ree4g9VMnG7MK6Yo1lrqrqQysAysN4IYXBB8LSkdrurf1XiBi6a2p4gnPYblrby3+MXPmG8ZItjmsv0mmdH1D36QLUifap37y+ak/ow8JPdYdDpp7D1MM/B1sG5qw3qw6g2Mn1quXon0aQwT6NqvQqLlemxVh1HMdCLEHwInzzohERAREQEREDMTEQEREBERAREQE+zROPOi69PEKiOaThwji6krwv4HmDyIB5T44gdLau60YbT+HOJRwoQXqIxAakQLnN0sDZuBA85QuuGn21kxT4g3CepTU+zTW+XdyJ3k9Wtymno4h6AcI7KHUowUkB0O8qw5jhun1aD0adMYinhldU7RwudiAFHFjv4mwNhzNhMzjnsWJsc1Z7ZjpGovdUlKIPNuD1PhvUdS3gJa2lNIU9FUXr1DlSmpZj0HIDmSbADmSJnRuCp6MpJQprlSmoRR0UW3+J8TzJlSbYdZvpNQaPpt3KZD1SOb2uieSg3PUr+GZ+1VAdPaXfTuIqYqp6ztcLe4VBuRR0At5m55zXxE6IT1TqNTIZSVZSGVhuIYG4YHxBtPMQOkNRdYxrLhFqm3aL93VUcqigXIH4WFiPO3Ka7abqx6QYbtKa3r0LuluLr7dPrcAEdVHiZVGz7WX0bxas5+5q2p1RyAv3an5STf+kt0nRYObeJzsyjlfRGkn0TWp4mkbOjBh4Ec1P9LAkHznRi604X6EukGqBaTKG372zHcaYA4uGBFhzBlNbUNC09D40mky5awNUorDNTYnvAoN6qxNx5sOUiL4h3VaZdiiMzqlzlVmtmYLwBNhvmrPL2Ntrbp46yYpsT2YQEBVUccq3ys59prHefAAcrzSxE0EREBERAREQEREBERAREQEREBERATBF5mIEq0Br9jtBrkWp2qWsErXbLu3FWvmFt265G7hIxVqNWZndizOxdmPFmYksx6kkzxEYEREBERASVLr/jqeFTCJVyKi5e0UfeMnsrnPq2FhcC+4b5FYjBlmLksSSSbkk3JJ4kk7yesxEQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA//9k="} alt="sena icono" height={100} width={100} />
-                    </div>
+                    <article className={styles.container_img}>
+                        <Image src={'/logosena.png'} alt="sena icono" height={100} width={100} />
+                    </article>
                     <nav>
                         <ul>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><Link href={`/${username}/${rol}/home`}>Home</Link></li>
+                            <li><Link href={`/${username}/${rol}/notes`}>notes</Link></li>
+                            <li><Link href={`/${username}/${rol}/session`}>Session</Link></li>
+                            <li><Link href="/">Logout</Link></li>
                         </ul>
                     </nav>
                 </aside>

@@ -13,6 +13,8 @@
     width: 90%;
 }
 
+
+
 .container_graph1,
 .container_graph2 {
     display: flex;
@@ -21,10 +23,22 @@
     height: 100%;
 }
 
-.container_graph1 > div,
-.container_graph2 > div {
-    background-color: aliceblue;
+.container_graph1 > article,
+.container_graph2 > article {
+    text-align: center;
     margin: 5px;
+    padding: 15px;
     width: 100%;
     height: 100%;
+}
+
+.container_graph1 > article > h5,
+.container_graph2 > article > h5{
+    margin: 5px;
+}
+
+.container_graph2 > :last-child,
+.container_graph1 > :last-child {
+    margin-left: 25px;
+    
 }
