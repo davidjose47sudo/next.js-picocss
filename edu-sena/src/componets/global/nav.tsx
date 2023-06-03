@@ -4,18 +4,15 @@ import styles from "../../styles/global/nav.module.css"
 import Link from "next/link";
 import { decode } from "code-module64";
 import { useEffect, useState } from "react";
+import { MdAccountCircle, MdHome, MdLibraryBooks, MdOutlineLogout } from "react-icons/md";
 
 export default function Nav({ children, }: { children: React.ReactNode }) {
 
     const [username, setusername] = useState("admin")
     const [rol, setRol] = useState("admin")
-    let user = {
-        username: "admin",
-        rol: "admin"
-    }
+
     async function parsedata(data: string) {
         const datauser = await JSON.parse(data)
-        console.log(datauser)
         setRol(datauser.rol)
         setusername(datauser.username)
     }
@@ -24,9 +21,6 @@ export default function Nav({ children, }: { children: React.ReactNode }) {
         if (typeof (data) === "string") {
             const desencript = decode({ text: data, key: 'env.aquiva' })
             desencript.then(data => {
-
-                console.log(data.information)
-                console.log(data.information.information)
                 parsedata(data.information.information)
             })
             desencript.catch(e => alert("error"))
@@ -41,10 +35,10 @@ export default function Nav({ children, }: { children: React.ReactNode }) {
                     </article>
                     <nav>
                         <ul>
-                            <li><Link href={`/${username}/${rol}/home`}>Home</Link></li>
-                            <li><Link href={`/${username}/${rol}/notes`}>notes</Link></li>
-                            <li><Link href={`/${username}/${rol}/session`}>Session</Link></li>
-                            <li><Link href="/">Logout</Link></li>
+                            <li><Link className={styles.Link} href={`/${username}/${rol}/home`}><span><MdHome size={30} /><p className={styles.navp}>Home</p></span></Link></li>
+                            <li><Link className={styles.Link} href={`/${username}/${rol}/notes`}><span><MdLibraryBooks size={30} /><p className={styles.navp}>notes</p></span></Link></li>
+                            <li><Link className={styles.Link} href={`/${username}/${rol}/session`}><span><MdAccountCircle size={30} /><p className={styles.navp}>Session</p></span></Link></li>
+                            <li><Link className={styles.Link} href="/"><span><MdOutlineLogout size={30} /><p className={styles.navp}>Logout</p></span></Link></li>
                         </ul>
                     </nav>
                 </aside>

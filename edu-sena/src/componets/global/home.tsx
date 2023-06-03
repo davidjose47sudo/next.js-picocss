@@ -87,21 +87,21 @@ export default function Home() {
                 <div className={styles.container_graph}>
                     <div className={styles.container_graph1}>
                         <article>
-                            <h5>titulo</h5>
+                            <h5>titulo1</h5>
                             <LineChart datasets={data.datasets} labels={data.labels} />
                         </article>
                         <article>
-                            <h5>titulo</h5>
+                            <h5>titulo2</h5>
                             <BarChart labels={data4.labels} datasets={data4.datasets} />
                         </article>
                     </div>
                     <div className={styles.container_graph2}>
-                        <article>
-                            <h5>titulo</h5>
+                        <article className={styles.Doughnut}>
+                            <h5>titulo3</h5>
                             <DoughnutChart labels={data2.labels} datasets={data2.datasets} />
                         </article>
                         <article>
-                            <h5>titulo</h5>
+                            <h5>titulo4</h5>
                             <MixedChart labels={data3.labels} datasets={data3.datasets} />
                         </article>
                     </div>

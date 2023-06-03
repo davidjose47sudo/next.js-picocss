@@ -1,4 +1,5 @@
 "use client"
+import styles from '../../styles/graph.module.css'
 import { Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
 import {
     Chart,
@@ -54,16 +55,16 @@ Chart.register(
 );
 
 export const LineChart = (config: graphdataLine) => {
-    return <Line style={{ height: '638px', width: '638px', background: 'white',borderRadius:'10px' }} data={config} />;
+    return <Line className={styles.Line} data={config} />;
 };
 export const BarChart = (config: graphdataBar) => {
-    return <Bar style={{ height: '638px', width: '638px', background: 'white' ,borderRadius:'10px'}} data={config} />;
+    return <Bar className={styles.Bar} data={config} />;
 };
 export const DoughnutChart = (config: graphdataDuonunt) => {
-    return <Doughnut style={{ height: '425px', width: '425px', background: 'white',borderRadius:'10px' }} data={config} />;
+    return <Doughnut className={styles.Doughnut}  data={config} />;
 };
 export const MixedChart = (config: graphdataMixte) => {
-    return <Bar style={{ height: '825px', width: '850px', background: 'white' ,borderRadius:'10px' }} data={config} />; //este error se ignora porque en la doc del chart esta bien nose porque marca error
+    return <Bar className={styles.Mixed}  data={config} />; //este error se ignora porque en la doc del chart esta bien nose porque marca error
 };
 
 

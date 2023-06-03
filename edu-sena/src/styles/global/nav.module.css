@@ -23,6 +23,19 @@
 .container_nav>aside>nav>ul {
     margin: 5px;
 }
+.Link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.Link > span {
+    display: flex;
+    flex-direction: row;
+}
+.Link > span > p {
+   padding-left: 5px;
+}
 
 .container_nav>aside>nav>ul>li:last-child {
     position: absolute;
@@ -32,5 +45,82 @@
 
 .children_main {
     width: 85%;
-    background-color: white;
+    background-color: var(--background-start-rgb);
 }
+
+@media only screen and (max-width: 1375) {
+    /* Agrega aquí los estilos específicos para pantallas de PC pequeñas */
+    .container_nav {
+        width: 12%;
+        align-items: flex-start;
+        height: max-content;
+    }
+    .children_main {
+        width: 88%;
+        height: max-content;
+        background-color: white;
+    }
+    .container_nav>aside>nav>ul {
+        margin: 0px;
+    }
+
+    .navp{
+        visibility: hidden;
+        display: none;
+    }
+
+    
+    /* Otros estilos para pantallas de PC pequeñas... */
+  }
+
+  @media only screen and (max-width: 1024px) {
+    /* Agrega aquí los estilos específicos para pantallas de PC pequeñas */
+    .container_nav {
+        width: 12%;
+        align-items: flex-start;
+        height: max-content;
+    }
+    .children_main {
+        width: 88%;
+        height: max-content;
+        background-color: white;
+    }
+    .container_nav>aside>nav>ul {
+        margin: 0px;
+    }
+
+    .navp{
+        visibility: hidden;
+        display: none;
+    }
+
+
+    
+    /* Otros estilos para pantallas de PC pequeñas... */
+  }
+
+  @media only screen and (max-width: 767px) and (max-device-width: 812px){
+    /* Agrega aquí los estilos específicos para iPhone */
+    .container_nav {
+        width: 12%;
+        align-items: flex-start;
+        height: max-content;
+    }
+    .children_main {
+        width: 88%;
+        height: max-content;
+        background-color: var(--background-start-rgb);
+    }
+    .container_nav>aside>nav>ul {
+        margin: 0px;
+    }
+
+    .navp{
+        visibility: hidden;
+        display: none;
+    }
+
+   
+    
+    /* Otros estilos para iPhone... */
+  }
