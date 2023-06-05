@@ -4,6 +4,7 @@ import { FormEvent, FormEventHandler, use, useState } from "react";
 import styles from "../styles/page.module.css";
 import { encode } from "code-module64";
 import Image from "next/image";
+import { login } from "@/libs/auth/userauth";
 
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       }
     )
     user.then(encript => {
+      login(encript.message);
       localStorage.setItem('datauser', encript.message);
       setTimeout(() => {
         if (true) {
