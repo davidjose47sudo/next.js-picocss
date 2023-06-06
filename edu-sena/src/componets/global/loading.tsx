@@ -1,9 +1,13 @@
 export default function Loading() {
     return (
-        <div className="loader">
-            <div className="scanner">
-                <span>Loading...</span>
+        <main className="containerLoading">
+            <div className="loading-wave">
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
+                <div className="loading-bar"></div>
             </div>
-        </div>
+        </main>
+
     )
 }

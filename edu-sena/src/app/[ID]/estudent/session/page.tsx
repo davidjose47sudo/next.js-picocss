@@ -1,4 +1,5 @@
 import Nav from "@/componets/global/nav";
+import Session from "@/componets/session";
 
 
 export default function session() {
@@ -6,10 +7,7 @@ export default function session() {
 
     return (
         <Nav>
-
-            <>
-                <h1>perfil estudiantes  </h1>
-            </>
+            <Session />
         </Nav>
     )
 }

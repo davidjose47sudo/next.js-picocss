@@ -1,10 +1,11 @@
 'use client'; // ahora hay que indicar si el componenete lo renderizara el usuario o el servidor
 import { useRouter } from "next/navigation";
-import { FormEvent, FormEventHandler, use, useState } from "react";
+import { FormEvent, useState } from "react";
 import styles from "../styles/page.module.css";
 import { encode } from "code-module64";
 import Image from "next/image";
 import { login } from "@/libs/auth/userauth";
+import LoginDB from "./API/login/loginDB";
 
 
 export default function Home() {
@@ -16,30 +17,50 @@ export default function Home() {
   function validation(e: FormEvent<HTMLFormElement>) {
     setstatusSend(true)
     e.preventDefault()
-    const user = encode(
-      {
-        secret: 'env.aquiva',
-        data: {
-          information: JSON.stringify({username:username,rol:"estudent"}) 
-        }
+    const response = LoginDB({ username: username, password: password })
+    response.then((elemet) => {
+      if (typeof (elemet) === "object") {
+        const token = elemet.token
+        token.then(token => {
+          if (token) {
+            const user = encode(
+              {
+                secret: 'env.aquiva',
+                data: {
+                  information: JSON.stringify({ username: username, rol: elemet.rol })
+                }
+              }
+            )
+            user.then((encript: { message: string; }) => {
+              login(encript.message, token);
+              setTimeout(() => {
+                if (elemet.rol === "estudent") {
+                  setstatusSend(false)
+                  return route.push(`/${username}/estudent/home`)
+                }
+                if (elemet.rol === "teacher") {
+                  setstatusSend(false)
+                  return route.push(`/${username}/teacher/home`)
+                }
+                if (elemet.rol === "admin") {
+                  setstatusSend(false)
+                  return route.push(`/${username}/admin/home`)
+                }
+                return alert("Error De Rol")
+              }, 1000);
+            })
+            user.catch((error: any) => {
+              setstatusSend(false)
+              alert("intente de nuevo")
+            })
+          }
+        })
+      } else {
+        setstatusSend(false)
+        return alert("usuario o contraseña incorrecta")
       }
-    )
-    user.then(encript => {
-      login(encript.message);
-      localStorage.setItem('datauser', encript.message);
-      setTimeout(() => {
-        if (true) {
-          route.push(`/${username}/estudent/home`)
-        } else {
-          route.push(`/${username}/teacher/home`)
-        }
-      }, 1000);
     })
-    user.catch((error) => {
-      setstatusSend(false)
-      alert("intente de nuevo")
-      console.log(error)
-    })
+    response.catch((e) => alert(e))
   }
 
   function handleUsernameChange(e: any) {
@@ -54,7 +75,7 @@ export default function Home() {
     <main className={styles.main}>
       <article className={styles.logincontainer}>
         <div>
-        <Image src={'/logosena.png'} alt="sena icono" height={100} width={100} />
+          <Image src={'/logosena.png'} alt="sena icono" height={100} width={100} />
         </div>
         <form className={styles.containerform} onSubmit={validation}>
           <div>
