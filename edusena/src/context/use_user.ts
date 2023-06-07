@@ -11,7 +11,7 @@ export default function useUser(username:string) {
   if (error) {
     console.error("Error:", error);
   }
-  console.log(data);
+
   const loading = !data && !error;
   const loggedOut = error && error.status === 403;
 

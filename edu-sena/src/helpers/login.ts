@@ -4,7 +4,7 @@ import logintypes from "@/types/login_type";
 import { encode } from "code-module64";
 
 export default async function handlelogin(credentiales: logintypes) {
-    const url = '/API/login'; // Ruta de la API de Next.js para el inicio de sesión
+    const url = '/api/login'; // Ruta de la API de Next.js para el inicio de sesión
     const { credencial, password } = credentiales
     const data = {
         identifier: credencial, // Nombre de usuario o email

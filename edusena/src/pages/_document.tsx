@@ -3,14 +3,10 @@ import { useEffect, useState } from 'react'
 
 
 function Document() {
-  const [themeLight, setThemeLight] = useState(false)
 
-  useEffect(() => {
-    setThemeLight(window.matchMedia('(prefers-color-scheme:light)').matches)
-  }, [])
 
   return (
-    <Html lang="en" data-theme={themeLight ? "light" : "dark"}>
+    <Html lang="en" >
       <Head />
       <body>
         <Main />
