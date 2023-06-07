@@ -1,0 +1,106 @@
+.Line {
+    height: 638px;
+    width: 638px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Bar {
+    height: 638px;
+    width: 638px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Doughnut {
+    height: 425px;
+    width: 425px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Mixed {
+    height: 825px;
+    width: 850px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 1375px) {
+    .Line {
+        height: 438px;
+        width: 438px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Bar {
+        height: 438px;
+        width: 438px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Mixed {
+        height: 438px;
+        width: 438px;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+    /* Agrega aquí los estilos específicos para pantallas de PC pequeñas */
+    .Line {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Bar {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Mixed {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+
+    /* Otros estilos para pantallas de PC pequeñas... */
+}
+
+@media only screen and (max-width: 767px) and (max-device-width: 812px)  {
+
+    /* Agrega aquí los estilos específicos para iPhone */
+    .Line {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Bar {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .Mixed {
+        height: 338px;
+        width: 338px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    /* Otros estilos para iPhone... */
+}

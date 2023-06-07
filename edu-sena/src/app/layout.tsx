@@ -1,4 +1,5 @@
 'use client';
+
 import '../styles/global/globals.css'
 import { Inter } from 'next/font/google'
 import '@picocss/pico'

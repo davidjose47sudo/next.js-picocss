@@ -1,7 +1,7 @@
-'use client';
+'use client'; // ahora hay que indicar si el componenete lo renderizara el usuario o el servidor
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import styles from "../styles/page.module.css";
+import styles from "@/styles/page.module.css";
 import Image from "next/image";
 import handlelogin from "@/helpers/login";
 
@@ -17,17 +17,16 @@ export default function Home() {
     e.preventDefault()
     const response = handlelogin({ credencial: username, password: password })
     response.then((response) => {
-      console.log(response)
-      if (!response) {
+     
+      if (response.message === "Credenciales inválidas") {
         setstatusSend(false)
-        return alert("usuario o contraseña incorrecta")
+        return alert(response.message)
       }
       if (typeof (response) === "object") {
         setTimeout(() => {
-          console.log(response)
-          if (response.message.rol) {
+          if (response.rol != undefined) {
             setstatusSend(false)
-            return route.push(`/${username}/${response.message.rol}/home`)
+            return route.push(`/${username}/${response.rol}/home`)
           }
           return alert("Error De Rol")
         }, 1000);
