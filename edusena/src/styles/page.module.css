@@ -50,6 +50,10 @@
   align-items: center;
 }
 
+.botton{
+  background-color: var(--background-nav-hex);
+}
+
 @media only screen and (max-width: 1024px) {
   /* Agrega aquí los estilos específicos para pantallas de PC pequeñas */
   .logincontainer {
@@ -69,6 +73,10 @@
   .containerbutton{
     height: 50px;
     padding: 5px;
+  }
+
+  .botton{
+    background-color: var(--background-nav-hex);
   }
   /* Otros estilos para pantallas de PC pequeñas... */
 }
@@ -93,6 +101,10 @@
   .containerform{
     width: 70%;
     height: 350px;
+  }
+
+  .botton{
+    background-color: var(--background-nav-hex);
   }
   /* Otros estilos para iPhone... */
 }

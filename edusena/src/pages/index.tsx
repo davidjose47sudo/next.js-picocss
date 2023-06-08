@@ -17,7 +17,7 @@ export default function Home() {
     e.preventDefault()
     const response = handlelogin({ credencial: username, password: password })
     response.then((response) => {
-     
+
       if (response.message === "Credenciales inválidas") {
         setstatusSend(false)
         return alert(response.message)
@@ -28,10 +28,10 @@ export default function Home() {
             setstatusSend(false)
             return route.push(`/${username}/${response.rol}/home`)
           }
+          setstatusSend(false)
           return alert("Error De Rol")
         }, 1000);
       }
-      setstatusSend(false)
     })
     response.catch((e) => alert(e))
   }
@@ -53,7 +53,7 @@ export default function Home() {
         <form className={styles.containerform} onSubmit={validation}>
           <div>
             <div className={styles.form_group}>
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username_Email">Username o Email</label>
               <input
                 type="text"
                 id="username"
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.containerbutton}>
-            <button aria-busy={sendstatus ? "true" : "false"} type="submit" >Login in</button>
+            <button className={styles.botton} aria-busy={sendstatus ? "true" : "false"} type="submit" >Login in</button>
           </div>
         </form>
       </article>

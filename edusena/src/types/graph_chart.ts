@@ -24,28 +24,25 @@ export interface graphdataDuonunt {
     ],
 };
 
-export interface graphdataMixte {
+export interface Linemix {
     labels: string[],
-    datasets: [
-        {
-            label: string,
-            data: number[],
-            type: string,
-            fill: false,
-            borderColor: string,
-            tension: number,
-        },
-        {
-            label: string,
-            data: number[],
-            type: string,
-            backgroundColor: string,
-        },
-    ],
+    datasets: [{
+        label: string,
+        data: number[],
+        borderColor: string,
+        backgroundColor: string,
+        yAxisID: string
+    }, {
+        label: string,
+        data: number[],
+        borderColor: string,
+        backgroundColor: string,
+        yAxisID: string
+    }]
 };
 
 export interface graphdataBar {
-    labels:string[],
+    labels: string[],
     datasets: [{
         label: string,
         data: number[],

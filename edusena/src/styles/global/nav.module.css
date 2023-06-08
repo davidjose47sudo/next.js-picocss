@@ -6,6 +6,7 @@
 }
 
 .container_img {
+    background-color: var(--background-nav-hex);
     margin: 0px;
     padding: 10px;
     width: 100%;
@@ -16,6 +17,7 @@
 }
 
 .container_nav {
+    background-color: var(--background-nav-hex);
     width: 15%;
     align-items: flex-start;
 }
@@ -37,15 +39,29 @@
 .Link{
     display: flex;
     justify-content: center;
-    align-items: center;
     cursor: pointer;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
 }
 .Link > span {
     display: flex;
     flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    color: var(--text-nav-hex);
 }
 .Link > span > p {
-   padding-left: 5px;
+    padding-left: 5px;
+    margin: 0px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    color: var(--text-nav-hex);
 }
 
 .container_nav>aside>nav>ul>li:last-child {
@@ -98,6 +114,7 @@
     }
     .container_nav>aside>nav>ul {
         margin: 0px;
+        height: 100vh;
     }
 
     .navp{
@@ -105,7 +122,28 @@
         display: none;
     }
 
-
+    .Link{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        height: 50px;
+        margin: 10px;
+        padding: 5px;
+    }
+    .Link > span {
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        padding-left: 0px;
+        height: 100%;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        color: var(--text-nav-hex);
+    }
+    .Link > span > p {
+       display: none;
+    }
     
     /* Otros estilos para pantallas de PC pequeñas... */
   }
@@ -124,11 +162,35 @@
     }
     .container_nav>aside>nav>ul {
         margin: 0px;
+        height: 100vh;
     }
 
     .navp{
         visibility: hidden;
         display: none;
+    }
+
+    .Link{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        height: 50px;
+        margin: 10px;
+        padding: 5px;
+    }
+    .Link > span {
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        padding-left: 0px;
+        height: 100%;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        color: var(--text-nav-hex);
+    }
+    .Link > span > p {
+       display: none;
     }
 
    

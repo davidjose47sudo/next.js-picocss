@@ -1,6 +1,6 @@
-import { BarChart, DoughnutChart, LineChart, MixedChart } from "@/componets/global/graph_chart";
+import { BarChart, DoughnutChart, LineChart, LineP } from "@/componets/global/graph_chart";
 import Nav from "@/componets/global/nav";
-import { graphdataDuonunt, graphdataLine, graphdataMixte, graphdataBar } from "@/types/graph_chart";
+import { graphdataDuonunt, graphdataLine, graphdataBar } from "@/types/graph_chart";
 import styles from '../../styles/global/home.module.css'
 
 export default function Home() {
@@ -34,25 +34,6 @@ export default function Home() {
                 hoverOffset: 4
             }],
     };
-    const data3: graphdataMixte = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-        datasets: [
-            {
-                label: 'Ventas',
-                data: [4000, 2400, 3200, 5400, 3500],
-                type: 'line',
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0,
-            },
-            {
-                label: 'Gastos',
-                data: [2000, 3500, 2800, 4200, 3800],
-                type: 'bar',
-                backgroundColor: 'rgb(255, 99, 132)',
-            },
-        ],
-    };
 
     const data4: graphdataBar = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
@@ -81,6 +62,26 @@ export default function Home() {
         }]
     };
 
+
+    const data5 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: "enviados",
+            data: [1,3,4,5,6],
+            borderColor: "'rgba(255, 99, 132, 0.2)'",
+            backgroundColor: "'rgba(255, 99, 132, 0.2)'",
+            yAxisID: "y",
+        }]
+    };
+
+    data5.datasets.push({
+        label: "recibidos",
+        data: [1,2,3,4,5],
+        borderColor: 'rgb(255, 205, 86)',
+        backgroundColor: 'rgb(255, 205, 86)',
+        yAxisID: "y",
+    })
+
     return (
         <Nav>
             <div className={styles.desktop}>
@@ -102,7 +103,7 @@ export default function Home() {
                         </article>
                         <article>
                             <h5>titulo4</h5>
-                            <MixedChart labels={data3.labels} datasets={data3.datasets} />
+                            <LineP labels={data5.labels} datasets={data5.datasets} />
                         </article>
                     </div>
                 </div>

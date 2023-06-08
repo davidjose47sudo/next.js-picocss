@@ -1,18 +1,14 @@
 import * as jose from "jose"
 
-
 export default async function loginToken(data: object) {
-    const secret = new TextEncoder().encode(
-        'env.secret',
-    )
+    const encoder = new TextEncoder();
+    const secret = encoder.encode('env.secret');
+    console.log(secret)
     const alg = 'HS256'
     const jwt = await new jose.SignJWT({ data })
         .setProtectedHeader({ alg })
-        .setIssuedAt()
-        .setIssuer('urn:example:issuer')
-        .setAudience('urn:example:audience')
         .setExpirationTime('8h')
-        .sign(secret)
+        .sign(secret) //error en la version mobil por incompativilidad , el formato es Uint8Array o ArrayBuffer se necesita alli
     return jwt
 }
 

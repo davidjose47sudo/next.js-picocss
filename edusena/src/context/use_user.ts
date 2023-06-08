@@ -1,9 +1,9 @@
 import useSWR from "swr";
 
 
-const fetcher = url => fetch(url).then(r => r.json())
 
 export default function useUser(username:string) {
+  const fetcher =(url:string) => fetch(url).then(r => r.json())
   const url = `http://localhost:3000/api/information?email=${username}`;
   
   const { data, mutate, error } = useSWR(url,fetcher);

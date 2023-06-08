@@ -11,6 +11,5 @@ export function logout() {
     // delete cookie
     document.cookie = "swr-session-token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     document.cookie = "swr-session-tokenauth=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    localStorage.setItem("username"," ")
     localStorage.removeItem("username")
 }
