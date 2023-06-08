@@ -60,6 +60,7 @@ export default function Home() {
                 name="username"
                 autoComplete="off"
                 placeholder="Enter your username"
+                required
                 onChange={handleUsernameChange}
               />
             </div>
@@ -71,12 +72,13 @@ export default function Home() {
                 name="password"
                 autoComplete="off"
                 placeholder="Enter your password"
+                required
                 onChange={handlePasswordChange}
               />
             </div>
           </div>
           <div className={styles.containerbutton}>
-            <button className={styles.botton} aria-busy={sendstatus ? "true" : "false"} type="submit" >Login in</button>
+            <button className={styles.botton} aria-busy={sendstatus ? "true" : "false"} type="submit" >Sign in</button>
           </div>
         </form>
       </article>
